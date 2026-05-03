@@ -1,0 +1,4 @@
+#+title: About Short States
+
+
+This folder contains Creatures whose state processes last under 5 seconds.

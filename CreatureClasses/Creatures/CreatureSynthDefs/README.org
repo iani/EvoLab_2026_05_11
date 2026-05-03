@@ -1,0 +1,8 @@
+#+title: Readme
+
+*Put your synthdefs here*
+
+All files that are in this folder are loaded when the Server boots.
+Each file should contain just one synthdef.
+You should not add the synthdef yourself.
+The system adds it when the server boots.

@@ -1,0 +1,5 @@
+#+title: About Koorogi Family
+
+A set of classes for trying out different sound designs and behaviors.
+Generated with GeminiCli, after a list of names given by ChatGpt, in answer to a question about the Enma-Cricket (Enma-Koorogi, meaning God of the Underworld Cricket), a cricket with a characteristic sad and dark song.
+
