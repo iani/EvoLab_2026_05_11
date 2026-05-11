@@ -5,6 +5,8 @@
 // NORMAL CYCLE ROUTINE
 //////////////////////////////////////////////////
 
+// EvoLab.dangerInterval = // function, numeric constant or stream
+
 ~evo = EvoLab.play(
 
 	[
@@ -22,7 +24,7 @@
 	inf
 );
 
-
+//:------------ OBSOLETE --------------
 ~normalCycle = {
 	Routine({
 		loop {
