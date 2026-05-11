@@ -21,8 +21,8 @@ EvoLab {
 		#states, durs = statesDurs.clump(2).flop;
 		this.startDangerRoutine;
 		statePattern = Pbind(
-			\state, Pseq(states, repeats),
-			\dur, Pseq(durs, repeats),
+			\state, Pseq(states collect: _.asStream, repeats),
+			\dur, Pseq(durs collect _.asStream, repeats),
 			\play, {
 				postln("Playing state" + ~state + "for" + ~dur + "seconds");
 				creatures do: { | c | c.performAction(*~state) }
