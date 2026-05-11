@@ -39,7 +39,8 @@ Porcupine : Creature {
                 \rate, 2,
                 \lfoRate, 1.5,
                 \minMul, 0.1,
-                \maxMul, 0.7
+                \maxMul, 0.7,
+				\out, spat.outbus
             ])
         );
        // *** dawn voice
@@ -48,7 +49,7 @@ Porcupine : Creature {
 			    this.addTimed (
 				  {SinOsc.ar(LFNoise1.kr(1).range(1200, 1600), 0, 0.1) *
 					Line.kr(0,1,0.5).dup
-				  }.play,
+				  }.play(outbus: spat.outbus),
 				  [1, 2, 3].choose
 			    );
 		 }
@@ -63,7 +64,8 @@ Porcupine : Creature {
                 \rate, 1.5,
                 \lfoRate, 0.8,
                 \minMul, 0.05,
-                \maxMul, 1
+                \maxMul, 1,
+				\out, spat.outbus
             ])
         );
 		  // *** day voice
@@ -75,7 +77,7 @@ Porcupine : Creature {
 					       Env.perc(0.5, 0.8, [0.03, 0.1, 0.17].choose),
 						    doneAction:2
 				      ).dup
-				  }.play,
+				  }.play(outbus: spat.outbus),
 				  3
 			    );
 		 }
@@ -96,7 +98,7 @@ Porcupine : Creature {
 		 // *** dusk voice
        this add: {
 			GrayNoise.ar(LFNoise1.kr(0.1) * 0.01).dup
-		 }.play;
+		 }.play(outbus: spat.outbus);
 	}
 
 
@@ -109,7 +111,8 @@ Porcupine : Creature {
                 \rate, 0.5,
                 \lfoRate, 0.3,
                 \minMul, 0,
-                \maxMul, 0.4
+                \maxMul, 0.4,
+				\out, spat.outbus
             ])
         );
 		 // *** night voice
@@ -126,7 +129,8 @@ Porcupine : Creature {
                 \rate, 3,
                 \lfoRate, 2,
                 \minMul, 0.4,
-                \maxMul, 1
+                \maxMul, 1,
+				\out, spat.outbus
             ])
         );
     }

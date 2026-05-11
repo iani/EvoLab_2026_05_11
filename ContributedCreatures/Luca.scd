@@ -23,7 +23,7 @@ Luca : Creature { // your class code here
 			//	soul = SinOsc.ar(freq: Line.kr(178, 33, 2), mul: Line.kr(0.1, 1, 3)).dup(2);
 			soul = Saw.ar(Line.kr(17, 33, 10), Line.kr(0.1, 0.3, 7));
 			(body * soul).adsrpan;
-		}.play;
+		}.play(outbus: spat.outbus);
 	}
 
 
@@ -39,7 +39,7 @@ Luca : Creature { // your class code here
 			//	soul = SinOsc.ar(freq: Line.kr(178, 33, 2), mul: Line.kr(0.1, 1, 3)).dup(2);
 			soul = Saw.ar(Line.kr(33, 55, 10), Line.kr(0.3, 1, 3));
 			(body * soul).adsrpan;
-		}.play;
+		}.play(outbus: spat.outbus);
 	}
 
 
@@ -54,7 +54,7 @@ Luca : Creature { // your class code here
 			);
 			soul = SinOsc.ar(Line.kr(55, 23, 10), Line.kr(1, 0.1, 7));
 			(body * soul).adsrpan;
-		}.play;
+		}.play(outbus: spat.outbus);
 	}
 
 
@@ -69,7 +69,7 @@ Luca : Creature { // your class code here
 			);
 			soul = SinOsc.ar(Line.kr(23, 11, 2), Line.kr(0.1, 0.3, 3));
 			(body * soul).adsrpan;
-		}.play;
+		}.play(outbus: spat.outbus);
 	}
 
 
@@ -84,12 +84,6 @@ Luca : Creature { // your class code here
 			);
 			soul = SinOsc.ar(Line.kr(11, 1, 2), Line.kr(0.3, 17, 3));
 			(body * soul).adsrpan;
-		}.play;
+		}.play(outbus: spat.outbus);
 	}
-
-
-
-
-
-
 }

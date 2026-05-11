@@ -86,7 +86,6 @@ Kickdrum : Creature {
 		]);
 	}
 
-
 	// =====================================================
 	// REQUIRED EVOLAB STATES (these WILL be called by EvoLab)
 	// =====================================================
@@ -403,7 +402,6 @@ Kickdrum : Creature {
 		);
 	}
 
-
 	// =====================================================
 	// AUTO EVENTS: ON/OFF + scheduling
 	// =====================================================
@@ -452,5 +450,4 @@ Kickdrum : Creature {
 		this.autoOff;
 		this.release(0.5);
 	}
-
 }

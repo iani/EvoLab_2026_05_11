@@ -11,7 +11,7 @@ Midis : Creature {
             env = EnvGen.kr(Env.asr(4, 0.4, 2), gate, doneAction: 2);
             sig = body * soul * env;
             sig.dup;
-        }.play);
+        }.play(outbus: synth.outbus));
     }
 
    day {
@@ -23,7 +23,7 @@ Midis : Creature {
             env = EnvGen.kr(Env.asr(0.5, 0.6, 1), gate, doneAction: 2);
             sig = body * soul * env;
             sig.dup;
-        }.play);
+        }.play(outbus: synth.outbus));
     }
 
     dusk {
@@ -35,7 +35,7 @@ Midis : Creature {
             env = EnvGen.kr(Env.asr(2, 0.4, 3), gate, doneAction: 2);
             sig = body * soul * env;
             sig.dup;
-        }.play);
+        }.play(outbus: synth.outbus));
     }
 
     night {
@@ -47,7 +47,7 @@ Midis : Creature {
             env = EnvGen.kr(Env.asr(5, 0.2, 5), gate, doneAction: 2);
             sig = body * soul * env;
             sig.dup;
-        }.play);
+        }.play(outbus: synth.outbus));
     }
 
     danger {
@@ -59,6 +59,6 @@ Midis : Creature {
             env = EnvGen.kr(Env.asr(0.01, 0.8, 0.1), gate, doneAction: 2);
             sig = body * soul * env;
             sig.dup;
-        }.play);
+        }.play(outbus: synth.outbus));
     }
 }

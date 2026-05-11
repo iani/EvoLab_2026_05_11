@@ -1,7 +1,7 @@
 TsabikaSouflia : Creature {
 	dawn {
 		   "TsabikaSouflia: Dawn".postln;
-		this.add(
+		this.substitute(
 			{
 			  var body, soul, env, lfo;
 				body = PlayBuf.ar(buffer.numChannels, buffer, rate: 0.6, loop: 1);
@@ -14,7 +14,6 @@ TsabikaSouflia : Creature {
          )
 	   }
 
-
 	day {
 			"TsabikaSouflia: Day".postln;
 			this.substitute(
@@ -25,7 +24,6 @@ TsabikaSouflia : Creature {
 			}.play;
 		   )
 		 }
-
 
 	dusk {
 		   "TsabikaSouflia: Dusk".postln;
@@ -40,7 +38,6 @@ TsabikaSouflia : Creature {
 		)
 	  }
 
-
 	night {
 		    "TsabikaSouflia: Night".postln;
 		this.substitute(
@@ -50,9 +47,7 @@ TsabikaSouflia : Creature {
 					* 0.3).dup;
 	}.play;
 		)
-
   }
-
 
 	 danger {
 		       "TsabikaSouflia: DANGER".postln;

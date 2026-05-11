@@ -86,10 +86,4 @@ Luca : Creature { // your class code here
 			(body * soul).adsrpan;
 		}.play;
 	}
-
-
-
-
-
-
 }

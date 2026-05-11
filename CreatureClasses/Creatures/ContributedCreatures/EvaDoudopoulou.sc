@@ -1,5 +1,4 @@
 /*
-
 Minimal example of a Creature class.
 
 States to be implemented are:
@@ -11,22 +10,25 @@ night
 danger
 */
 
- EvaDoudopoulou : Creature { // Creatures must be subclasses of Creature
+EvaDoudopoulou : Creature { // Creatures must be subclasses of Creature
 
 	// define one method for each state
 	// any states that do not have a method will remain silent (play nothing).
 
-
 	dawn { //pending
 		 this.substitute(
-        { PinkNoise.ar(0.05 ! 2) * Env.perc(0.1, 5).kr(2) }.play,
+        {
+			// var src;
+			// src = PinkNoise.ar(0.05 ! 2) * Env.perc(0.1, 5).kr(2);
+			// PanAz.ar(4, src, LFNoise2.kr(1/10).range(-1, 1));
+			PinkNoise.ar(0.05 ! 2) * Env.perc(0.1, 5).kr(2);
+		}.play,
 			releaseTime: 6);
-
 	}
 
 	day { //done (ripoff)
 		"EvaDoudopoulou: day".postln;
-		this add:
+		this substitute:
 		{ var sig = GrainBuf.ar(
             numChannels: 2,
             trigger: Impulse.ar(10),
@@ -44,7 +46,7 @@ danger
 
 	dusk { //done
 		"EvaDoudopoulou: night".postln;
-		this add: {
+		this substitute: {
 		var freqenv, sine0, sine1;
 		freqenv = Line.kr(1,0,5);
 			sine0 = SinOsc.ar(400*freqenv, mul: 0.1).dup;
@@ -63,7 +65,7 @@ danger
 
 		"EvaDoudopoulou: danger".postln;
 
-		 this add: { | buf |
+		 this substitute: { | buf |
 	var env, playbuf, playsine0, playsine1, playsine2 ;
 	env = Env.adsr(2, 1);
 	playbuf = PlayBuf.ar(buf.numChannels,

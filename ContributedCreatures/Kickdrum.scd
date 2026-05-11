@@ -76,7 +76,7 @@ Kickdrum : Creature {
 
 	playKick { |buf, rateMul=1.0, ampMul=1.0, hp=80|
 		Synth(\kickdrumPlayer, [
-			\out, 0,
+			\out, spat.outbus,
 			\buf, buf,
 			\amp, (rrand(0.10, 0.28) * ampMul * overlayKickAmpScale),
 			\rate, rateMul * [0.9, 1.0, 1.1, 1.2].choose,
@@ -320,7 +320,7 @@ Kickdrum : Creature {
 		this.addTimed(
 			Task({
 				Synth(\kickdrumBreath, [
-					\out, 0,
+					\out, spat.outbus,
 					\amp, breathAmp,
 					\soulFreq, soulFreq,
 					\pan, pan,

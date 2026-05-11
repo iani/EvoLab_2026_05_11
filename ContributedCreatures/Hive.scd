@@ -19,7 +19,7 @@ Hive : Creature {
 
             FreeVerb.ar(ring * breath * 0.4, 0.25, 0.9, 0.4) ! 2
 
-        }.play, 3);
+        }.play(outbus: spat.outbus), 3);
     }
 
     day {
@@ -39,7 +39,7 @@ Hive : Creature {
 
             FreeVerb.ar(buzz, 0.45, 1.8, 0.3) ! 2
 
-        }.play, 1.5);
+        }.play(outbus: spat.outbus), 1.5);
     }
 
     dusk {
@@ -57,7 +57,7 @@ Hive : Creature {
 
             FreeVerb.ar(ring * breath * 0.35, 0.35, 1.2, 0.5) ! 2
 
-        }.play, 4);
+        }.play(outbus: spat.outbus), 4);
     }
 
     night {
@@ -75,43 +75,43 @@ Hive : Creature {
 
             ring * breath * 0.25 ! 2
 
-        }.play, 4);
+        }.play(outbus: spat.outbus), 4);
     }
 
-danger {
+    danger {
 
-    this.substituteTimed({
+        this.substituteTimed({
 
-        var body, soul, ring, pulse, swarm, distorted;
+            var body, soul, ring, pulse, swarm, distorted;
 
-        body = PlayBuf.ar(
-            1,
-            this.buffer,
-            BufRateScale.kr(this.buffer) * 1.5,
-            loop: 1
-        );
+            body = PlayBuf.ar(
+                1,
+                this.buffer,
+                BufRateScale.kr(this.buffer) * 1.5,
+                loop: 1
+            );
 
-        soul = SinOsc.ar(
-            LFNoise1.kr(8).range(300, 900)
-        );
+            soul = SinOsc.ar(
+                LFNoise1.kr(8).range(300, 900)
+            );
 
-        ring = body * soul;
+            ring = body * soul;
 
-        pulse = LFPulse.kr(
-            LFNoise1.kr(1).range(8, 16),
-            0,
-            0.4
-        );
+            pulse = LFPulse.kr(
+                LFNoise1.kr(1).range(8, 16),
+                0,
+                0.4
+            );
 
-        swarm = ring * pulse;
+            swarm = ring * pulse;
 
-        distorted = tanh(swarm * 8);
+            distorted = tanh(swarm * 8);
 
-        distorted ! 2
+            distorted ! 2
 
-    }.play, 3.5, 0.2);
+        }.play(outbus: spat.outbus), 3.5, 0.2);
 
-}
+    }
 
 }
 

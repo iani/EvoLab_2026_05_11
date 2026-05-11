@@ -16,18 +16,18 @@ danger
 	// define one method for each state
 	// any states that do not have a method will remain silent (play nothing).
 
-
 	dawn { //pending
 		 this.substitute(
-        { PinkNoise.ar(0.05 ! 2) * Env.perc(0.1, 5).kr(2) }.play,
+        { PinkNoise.ar(0.05 ! 2) * Env.perc(0.1, 5).kr(2) }
+			 .play(outbus: spat.outbus),
 			releaseTime: 6);
-
 	}
 
 	day { //done (ripoff)
 		"EvaDoudopoulou: day".postln;
 		this add:
-		{ var sig = GrainBuf.ar(
+		{
+			var sig = GrainBuf.ar(
             numChannels: 2,
             trigger: Impulse.ar(10),
             dur: 0.1,
@@ -39,7 +39,7 @@ danger
             maxGrains: 256
         );
         sig * 0.7;
-		}.play;
+		}.play(outbus: spat.outbus);
 	}
 
 	dusk { //done
@@ -50,7 +50,7 @@ danger
 			sine0 = SinOsc.ar(400*freqenv, mul: 0.1).dup;
 			sine1 = SinOsc.ar(396*freqenv, mul: 0.1).dup;
 			(sine0 + sine1);
-		}.play;
+		}.play(outbus: spat.outbus);
 		{this.release(5)} defer: 3; //let's talk about this!
 	}
 
@@ -63,16 +63,16 @@ danger
 
 		"EvaDoudopoulou: danger".postln;
 
-		 this add: { | buf |
-	var env, playbuf, playsine0, playsine1, playsine2 ;
-	env = Env.adsr(2, 1);
-	playbuf = PlayBuf.ar(buf.numChannels,
-		EvaDoudopoulou.buffer, loop: 1).dup(2);
-	playsine0 = SinOsc.ar(72)*3.dup(2);
-	playsine1 = SinOsc.ar(111)*2.dup(2);
-    playsine2 = SinOsc.ar(102)*2.dup(2);
-	(playbuf * playsine0 * playsine1 * playsine2) *env.kr;
-		}.play;
+		this add: { | buf |
+			var env, playbuf, playsine0, playsine1, playsine2 ;
+			env = Env.adsr(2, 1);
+			playbuf = PlayBuf.ar(buf.numChannels,
+				EvaDoudopoulou.buffer, loop: 1).dup(2);
+			playsine0 = SinOsc.ar(72)*3.dup(2);
+			playsine1 = SinOsc.ar(111)*2.dup(2);
+			playsine2 = SinOsc.ar(102)*2.dup(2);
+			(playbuf * playsine0 * playsine1 * playsine2) *env.kr;
+		}.play(outbus: spat.outbus);
 
 	}
 

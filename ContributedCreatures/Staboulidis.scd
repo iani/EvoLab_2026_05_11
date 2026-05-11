@@ -17,7 +17,7 @@ Staboulidis : Creature {
 
 			// 4. Ring Modulation
 			(body * soul * env * 0.5);
-		}.play);
+		}.play(outbus: spat.outbus));
 	}
 
 	dawn {

@@ -37,7 +37,7 @@ Hum : Creature { // Creatures must be subclasses of Creature
 	}
 
 	dusk {
-		this release: 0.5;
+		this release: 5.5;
 		this add: { PlayBuf.ar(buffer.numChannels, Hum.buffer,
 				rate: [0.2, 0.4, 0.6].choose * BufRateScale.kr(buffer),
 				loop: 0,
@@ -46,12 +46,14 @@ Hum : Creature { // Creatures must be subclasses of Creature
 	}
 
 	night {
+		this release: 0.5;
 		this add: {
 			(PlayBuf.ar(buffer.numChannels, Hum.buffer, rate: 1.2, loop: 1, doneAction: 0) * PlayBuf.ar(buffer.numChannels, Hum.buffer, rate: 0.8, loop: 0, doneAction: 0)).dup
 		}.play
 	}
 
 	danger {
+		this release: 1.5;
 		this add: {
 			BBandPass.ar(WhiteNoise.ar(mul: 1), freq: Line.kr(20000, 20, 0.5), bw: 0.5, mul: 0.8).dup
 			*

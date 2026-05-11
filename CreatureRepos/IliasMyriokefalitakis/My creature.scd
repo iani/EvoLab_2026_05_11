@@ -33,7 +33,3 @@ x = Synth(\mixTest, [\buf, ~b0]);
 x.set(\atk, 1.5);
 
 Env.linen(0.2, 0.3, 1).plot;
-
-
-
-

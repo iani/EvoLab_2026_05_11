@@ -5,7 +5,8 @@ Talos : Creature {
     }
 
     dawn {
-
+        // TODO: substituteTimed instead of substitute?
+        // or does he mean release time?
         this.substitute({
 
             var body, soul, ring, breath, saturated, reverbed;
@@ -36,7 +37,7 @@ Talos : Creature {
 
             reverbed ! 2
 
-        }.play, 3);
+        }.play(outbus: spat.outbus), 3);
  }
     day {
 
@@ -70,7 +71,7 @@ Talos : Creature {
 
             reverbed ! 2
 
-        }.play, 1.5);
+        }.play(outbus: spat.outbus), 1.5);
 
     }
 
@@ -106,7 +107,7 @@ Talos : Creature {
 
             reverbed ! 2
 
-        }.play, 4);
+        }.play(outbus: spat.outbus), 4);
 
     }
 
@@ -131,7 +132,7 @@ Talos : Creature {
 
             (ring * breath * 0.3) ! 2
 
-        }.play, 4);
+        }.play(outbus: spat.outbus), 4);
 
     }
 
@@ -171,7 +172,7 @@ Talos : Creature {
 
             scream ! 2
 
-        }.play, 3.5, 0.5);
+        }.play(outbus: spat.outbus), 3.5, 0.5);
 
     }
   }
