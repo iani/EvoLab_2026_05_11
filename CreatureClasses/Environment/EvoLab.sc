@@ -32,7 +32,7 @@ EvoLab {
 	}
 
 	startDangerRoutine {
-		dangerInterval ?? { 60 * 4 };
+		dangerInterval ?? { dangerInterval = 60 * 4 };
 		dangerRoutine = {
 			loop {
 				dangerInterval.next.wait;
